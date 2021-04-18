@@ -1,0 +1,20 @@
+<div class="side-menu">
+  <div class="container">
+    <div class="menu-header header">
+      Agile
+    </div>
+  </div>
+  <div class="container-left">
+    <a class="side-menu-item" [ngClass]="(index==1)?'side-menu-item-active':''"
+      [routerLink]="['/dashboard']">Dashboard</a>
+    <a class="side-menu-item" [ngClass]="(index==2)?'side-menu-item-active':''" [routerLink]="['/orders']">Order</a>
+    <a class="side-menu-item" [ngClass]="(index==3)?'side-menu-item-active':''"
+      [routerLink]="['/products']">Products</a>
+    <a class="side-menu-item" [ngClass]="(index==4)?'side-menu-item-active':''"
+      [routerLink]="['/categories']">Categories</a>
+  </div>
+</div>
+
+<div class="burger-menu">
+  <mat-icon aria-hidden="false" aria-label="menu">menu</mat-icon>
+</div>

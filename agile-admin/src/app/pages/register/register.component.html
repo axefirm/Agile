@@ -1,0 +1,57 @@
+<div class="container-section">
+
+  <div class="main-section">
+    <div class="slider-section">
+      <div class="header">Welcome!</div>
+      <div class="sub-header">Create your own ecommerce website</div>
+      <div class="img-container">
+        <img *ngIf="indicator == 0" class="img" src="assets/img/login/finance.svg" alt="">
+        <img *ngIf="indicator == 1" class="img" src="assets/img/login/all_the_data.svg" alt="">
+        <img *ngIf="indicator == 2" class="img" src="assets/img/login/success_factor.svg" alt="">
+      </div>
+
+      <div class="indicator">
+        <div class="indicator-item shadow" *ngFor="let item of [].constructor(3); index as i" (click)="next(i)">
+          <div [ngClass]="{'inner-round': indicator == i}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-section">
+      <div class="header">Бүртгүүлэх</div>
+
+      <form [formGroup]="main" class="form">
+        <div class="paraph">
+          Овог
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <input type="text" maxlength="40" matInput placeholder="First name" formControlName="firstName" required>
+        </mat-form-field>
+        <div class="paraph">
+          Нэр
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <input type="text"  maxlength="40" matInput placeholder="Last name" formControlName="lastName"
+            required>
+        </mat-form-field>
+        <div class="paraph">
+          Утасны дугаар
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <input type="text" maxlength="8" minlength="8" matInput placeholder="Phone" formControlName="phoneNumber"
+            required>
+        </mat-form-field>
+        <div class="paraph">
+          Нууц үг
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+        </mat-form-field>
+
+        <div class="paraph" style=" margin-bottom: 1rem;">Нууц үг мартсан?</div>
+        <button mat-flat-button class="btn full-width" (click)="signup()">Бүртгүүлэх</button>
+      </form>
+    </div>
+  </div>
+
+</div>

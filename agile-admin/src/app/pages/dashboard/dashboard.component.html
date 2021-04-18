@@ -1,0 +1,73 @@
+<app-side-menu [index]="1"></app-side-menu>
+
+<div class="area">
+  <div class="main">
+    <div class="split">
+      <div class="middle-section">
+        <div class="header-section">
+          <div class="header">
+            Welcome, Sukhbat
+          </div>
+        </div>
+        <div class="no-margin">
+          <div class="orders center">
+            <div class="notif center">
+              <mat-icon>list_alt</mat-icon>
+            </div>
+            <div>
+              <div>
+                23789
+              </div>
+              <div>
+                Orders
+              </div>
+            </div>
+          </div>
+          <div class="orders center">
+            <div class="notif center">
+              <mat-icon>list_alt</mat-icon>
+            </div>
+            <div>
+              <div>
+                23789
+              </div>
+              <div>
+                Orders
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+          [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [dataLabels]="chartOptions.dataLabels">
+        </apx-chart>
+      </div>
+
+      <div class="right-section">
+        <div class="search-section">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Search for products...">
+          </mat-form-field>
+          <button class="notif" mat-flat-button>
+            <mat-icon>notifications</mat-icon>
+          </button>
+          <!-- <img class="notif" src="" /> -->
+        </div>
+
+        <div class="section">
+          <div class="sub-header">
+            Top selling products
+          </div>
+          <div class="paraph">
+            See all
+            <mat-icon>chevron_right</mat-icon>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

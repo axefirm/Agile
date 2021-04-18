@@ -1,0 +1,55 @@
+@import "/src/app/colors.scss";
+
+.header {
+    color: $main;
+    font-size: 32px;
+    width: 50%;
+    margin: 0;
+    display: contents;
+}
+.search-section {
+    text-align: end;
+}
+
+.notif {
+    margin: 0px 20px;
+    min-width: 24px;
+    padding: 0 12px;
+    height: 50px;
+    border-radius: 20px 4px;
+    color: $main;
+    background-color: $background-body;
+}
+
+.orders {
+    width: max-content;
+    background-color: $light-blue;
+    margin: 20px;
+    min-width: 24px;
+    padding: 12px;
+    height: 50px;
+    border-radius: 20px 4px;
+    padding-right: 20px;
+}
+.no-margin {
+    display: inline-flex;
+}
+.split {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.sub-header {
+    font-weight: 700;
+}
+.section {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.paraph {
+    display: inline-flex;
+    align-items: center;
+}

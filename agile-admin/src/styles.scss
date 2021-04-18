@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "/src/app/colors.scss";
+
+@font-face {
+  font-family: GoogleSans-Regular;
+  src: url(./assets/fonts/GoogleSans-Regular.ttf);
+}
+
+//#region [ Body css ]
+
+body,
+* {
+  margin: 0;
+  padding: 0;
+  font-family: GoogleSans-Regular;
+}
+
+body {
+  background-color: $background-body;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+.area {
+  height: Calc(100vh - 40px);
+  padding: 20px 20px 20px 0px;
+}
+
+.main {
+  background-color: white;
+  border-radius: 20px;
+  height: Calc(100% - 40px);
+  padding: 20px;
+  // height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .area {
+    padding: 0px 20px 20px 20px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .area {
+    margin-left: 250px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .area {
+    margin-left: 300px;
+  }
+}
+
+//#endregion
+
+//#region [ Header ]
+
+.header {
+  font-family: GoogleSans-Regular;
+  font-size: 24px;
+}
+
+.sub-header {
+  font-family: GoogleSans-Regular;
+  font-size: 16px;
+}
+
+.paraph {
+  font-family: GoogleSans-Regular;
+  font-size: 14px;
+}
+
+//#endregion
+
+//#region [ Indicator css ]
+
+.indicator {
+  width: fit-content;
+  margin: auto;
+  height: 40px;
+
+  .indicator-item {
+    height: 12px;
+    width: 12px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    border: 1px solid $white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .indicator-item:first-child {
+    margin-left: 0 !important;
+  }
+
+  .active {
+    background: $white;
+  }
+
+  .inner-round {
+    height: 9px;
+    width: 9px;
+    background-color: $white;
+    border-radius: 5px;
+    transition: 500ms;
+  }
+}
+
+//#endregion
+
+//#region [ Button ]
+.full-width {
+  width: 100%;
+}
+
+.btn {
+  background-color: $main;
+  color: white;
+}
+
+//#endregion
+
+//#region [ Input ]
+
+.mat-form-field-infix {
+  border-top-width: 0.3em;
+}
+//#endregion
+
+//#region [ Center ]
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+//#endregion

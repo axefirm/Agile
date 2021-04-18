@@ -1,0 +1,53 @@
+@import "/src/app/colors.scss";
+
+.side-menu {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+.side-menu-item {
+    display: block;
+}
+.side-menu-item {
+    color: $text-secondary;
+    padding: 20px;
+}
+.side-menu-item-active {
+    color: $main;
+    background-color: $white;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.menu-header {
+    height: 20vh;
+    padding: 20px 20px 0px 20px;
+}
+.container-left {
+    width: 90%;
+    margin-left: auto;
+}
+.burger-menu {
+    display: none;
+    margin: 10px 20px;
+}
+@media screen and (max-width: 767px) {
+    .side-menu {
+        display: none;
+    }
+    .burger-menu {
+        display: block;
+    }
+}
+@media screen and (min-width: 768px) {
+    .side-menu {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .side-menu {
+        width: 300px;
+    }
+}

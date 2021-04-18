@@ -1,0 +1,63 @@
+<div class="container-section">
+
+  <div class="main-section">
+    <div class="login-section">
+      <div class="header">Дэлгүүрийн бүртгэл</div>
+
+      <form [formGroup]="main" class="form">
+        <div class="input-container">
+          <div class="paraph">
+            Нэр
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <input type="text" maxlength="40" matInput placeholder="Shop name" formControlName="shopName" required>
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <div class="paraph">
+            Утасны дугаар
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <input type="text" maxlength="8" minlength="8" matInput placeholder="Telephone" formControlName="telephone" required>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <div class="paraph">
+            Хаяг
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <input type="text" maxlength="40" matInput placeholder="Address" formControlName="address">
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <div class="paraph">
+            Имэйл хаяг
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <input type="text" maxlength="40" matInput placeholder="Email" formControlName="email" required>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <div class="paraph">
+            Тайлбар
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <textarea matInput formControlName="detail"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <div class="paraph">
+            Дэлгүүрийн цахим хаяг
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <input type="text" maxlength="40" matInput placeholder="Domain" formControlName="domain" required>
+            <span matSuffix>.agile.shop</span>
+          </mat-form-field>
+        </div>
+        <button mat-flat-button class="btn full-width" (click)="createShop()">Бүртгүүлэх</button>
+      </form>
+    </div>
+  </div>
+
+</div>
