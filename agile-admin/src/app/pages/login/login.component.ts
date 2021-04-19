@@ -57,10 +57,8 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.main.valid) {
       this.api.login(this.main.value).subscribe(res => {
-        console.log(res);
-        alert(res.data.message);
         if (res.success) {
-          sessionStorage.setItem('token', 'true');
+          sessionStorage.setItem('token', res.data.token);
           this.router.navigate(['dashboard']);
         }
       }, err => {

@@ -58,9 +58,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.getUser('test').subscribe(data => {
-      console.log(data);
-    });
+    this.api.test().subscribe(res => {
+      console.log(res);
+    })
   }
 
 }

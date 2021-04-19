@@ -36,8 +36,12 @@ export class HttpService {
   }
 
   retrieve(operation: any): Observable<any> {
+    // Token
+    const token = sessionStorage.getItem('token');
+
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'token': token
     });
 
     return this.http
@@ -121,15 +125,22 @@ export class HttpService {
    * @returns Observable буцаана
    */
   post(operation: string, body: any): Observable<any> {
+    // Token
+    const token = sessionStorage.getItem('token');
+
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Access-Control-Allow-Headers', 'Content-Type')
       .append('Access-Control-Allow-Methods', 'GET')
-      .append('Access-Control-Allow-Origin', '*');
+      .append('Access-Control-Allow-Origin', '*')
+      .append('token', token);
+
     return this.http
       .post(
         this.url + operation,
         JSON.stringify(body, (_, value) => {
+          console.log(_);
+          console.log(value);
           if (value !== null) {
             return value;
           }

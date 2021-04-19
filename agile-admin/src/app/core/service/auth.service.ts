@@ -9,9 +9,8 @@ export class AuthService {
   constructor(public jwtHelper: JwtHelperService) { }
   public isAuthenticated(): boolean {
     const token = sessionStorage.getItem('token');
-    // Check whether the token is expired and return
-    // true or false
-    return true;
+
+    return token != null;
     // TODO: fix that after login section is complete.
     // return !this.jwtHelper.isTokenExpired(token);
   }

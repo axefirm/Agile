@@ -26,6 +26,7 @@ app.use('/assets', express.static('assets'));
 app.use(auth);
 app.use(merchant);
 
+
 server.listen(config.api.PORT, function () {
   console.log("Server is Up and Running " + config.api.PORT);
 })

@@ -25,4 +25,12 @@ export class ApiService {
     return this.http.post(Operation.createShop, data);
   }
 
+  addProduct(data) {
+    return this.http.post(Operation.addProduct, data);
+  }
+
+  test() {
+    return this.http.retrieve(Operation.test);
+  }
+
 }
