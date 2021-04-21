@@ -1,8 +1,53 @@
 <app-side-menu [index]="3"></app-side-menu>
 
 <div class="area">
-    <div class="main">
-      this is main.
+  <div class="main">
+    <div class="header">
+      Бараа бүтээгдэхүүн
+    </div>
+    <div class="body">
+      <button mat-flat-button class="btn" (click)="addProduct()">
+        <mat-icon>add</mat-icon>Бараа нэмэх
+      </button>
+
+      <div class="table">
+        <mat-form-field appearance="outline">
+          <input matInput (keyup)="applyFilter($event)" placeholder="Filter for products...">
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+      </div>
+
     </div>
   </div>
-  
+</div>

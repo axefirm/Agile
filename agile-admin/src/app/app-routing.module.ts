@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EnrollMerchComponent } from './pages/enroll-merch/enroll-merch.component';
@@ -19,7 +20,8 @@ import { RegisterComponent } from './pages/register/register.component';
     { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
     { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-    { path: 'create', component: EnrollMerchComponent},
+    { path: 'create', component: EnrollMerchComponent },
+    { path: 'add-product', component: AddProductComponent },
   ],
     { enableTracing: false, scrollPositionRestoration: 'enabled' })], // useHash: true
   exports: [RouterModule]

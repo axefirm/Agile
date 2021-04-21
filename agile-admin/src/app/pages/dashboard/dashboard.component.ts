@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.api.test().subscribe(res => {
       console.log(res);
-    })
+    });
   }
 
 }

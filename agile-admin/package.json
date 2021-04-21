@@ -23,7 +23,9 @@
     "@angular/router": "~11.0.9",
     "@auth0/angular-jwt": "^5.0.2",
     "apexcharts": "^3.26.1",
+    "file-upload-with-preview": "^4.1.0",
     "ng-apexcharts": "^1.5.9",
+    "ng-image-input-with-preview": "^1.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

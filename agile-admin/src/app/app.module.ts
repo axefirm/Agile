@@ -5,6 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +27,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { ProductMiniComponent } from './components/product-mini/product-mini.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EnrollMerchComponent } from './pages/enroll-merch/enroll-merch.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 
 export function tokenGetter() {
@@ -40,7 +46,8 @@ export function tokenGetter() {
     RegisterComponent,
     SideMenuComponent,
     ProductMiniComponent,
-    EnrollMerchComponent
+    EnrollMerchComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,11 @@ export function tokenGetter() {
     MatInputModule,
     MatIconModule,
     NgApexchartsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
     // TODO: Domain Add
     JwtModule.forRoot({
       config: {

@@ -1,0 +1,65 @@
+<app-side-menu [index]="3"></app-side-menu>
+
+<form [formGroup]="main" (ngSubmit)="submit()">
+  <div class="area">
+    <div class="main">
+
+      <div class="header">
+        Бараа нэмэх
+      </div>
+      <div class="main-container">
+        <div class="setting card-background">
+          Тохиргоо
+          <div>
+            <mat-slide-toggle class="paraph" color="primary">
+              Барааны төлөв
+            </mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle class="paraph" color="primary">
+              Барааны тоо ширхэгийг удирдана
+            </mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle class="paraph" color="primary">
+              Хүргэлттэй бараа
+            </mat-slide-toggle>
+          </div>
+        </div>
+        <div class="photo card-background">
+          Барааны зураг
+          <div class="upload-photo">
+            Зураг оруулна уу!
+            <!-- <form [formGroup]="uploadForm" (ngSubmit)="submit()">
+            <input type="file" accept="image/*" (change)="showPreview($event)" />
+
+            <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+              <img [src]="imageURL" [alt]="uploadForm.value.name">
+            </div>
+            <input formControlName="name" placeholder="Enter name">
+
+            <button type="submit">Submit</button>
+          </form> -->
+          </div>
+        </div>
+        <div class="info card-background">
+          <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+            <mat-tab label="Барааны мэдээлэл">
+              <!-- <div class="input paraph">
+                Барааны нэр
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput type="text" placeholder="Барааны нэрээ оруулна уу." formControlName="productName" required>
+                </mat-form-field>
+              </div> -->
+
+            </mat-tab>
+            <mat-tab label="Ангилал">
+
+
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -41,8 +41,12 @@ export class HttpService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': token
     });
+    
+    if (token) {
+      headers.append('token', token);
+    }
+
 
     return this.http
       .get(this.url + operation, { headers })
@@ -132,8 +136,11 @@ export class HttpService {
       .append('Content-Type', 'application/json')
       .append('Access-Control-Allow-Headers', 'Content-Type')
       .append('Access-Control-Allow-Methods', 'GET')
-      .append('Access-Control-Allow-Origin', '*')
-      .append('token', token);
+      .append('Access-Control-Allow-Origin', '*');
+
+    if (token) {
+      headers.append('token', token);
+    }
 
     return this.http
       .post(

@@ -1,0 +1,58 @@
+@import "/src/app/colors.scss";
+
+.main {
+    display: grid;
+    grid-template-rows: 30px auto;
+    row-gap: 20px;
+}
+
+.main-container {
+    display: grid;
+    height: max-content;
+    height: 100%;
+    width: calc(100% - 20px);
+    gap: 20px;
+    grid-template:
+        "setting info" 50%
+        "photo info" / 30% 70%;
+}
+
+.setting {
+    grid-area: setting;
+}
+
+.photo {
+    grid-area: photo;
+}
+
+.info {
+    grid-area: info;
+}
+
+.upload-photo {
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.input {
+    flex: 50%;
+}
+
+.example-stretched-tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.example-stretched-tabs > div {
+    flex: 50%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+    /*demo*/
+    box-shadow: 0 0 0 1px black;
+    margin-bottom: 10px;
+}
+
+.mat-tab-label {
+    min-width: 0px !important;
+}
