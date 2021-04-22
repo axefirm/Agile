@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/core/service/api.service';
 
 @Component({
   selector: 'app-add-product',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent implements OnInit {
   image: any;
-  constructor(private router: Router, public formBuilder: FormBuilder) {
+  constructor(private router: Router, public formBuilder: FormBuilder, private api: ApiService) {
     // Reactive Form
     this.uploadForm = this.formBuilder.group({
       avatar: [null],
@@ -68,6 +69,19 @@ export class AddProductComponent implements OnInit {
 
   // Submit Form
   submit() {
-    console.log(this.main.value);
+    if (this.main.valid) {
+      this.api.addProduct(this.main.value).subscribe(res => {
+        if (res.success) {
+          console.log(res);
+          alert(res.data.message);
+        } else {
+          console.log(res);
+          alert(res.data.message);
+        }
+      }, err => {
+        alert(err);
+      }
+      );
+    }
   }
 }
