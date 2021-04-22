@@ -40,6 +40,9 @@
 }
 .input {
     flex: 50%;
+    width: 48%;
+    display: inline-block;
+    margin-right: 2%;
 }
 
 .example-stretched-tabs {
@@ -55,4 +58,13 @@
 
 .mat-tab-label {
     min-width: 0px !important;
+}
+.grid-2{
+    div{
+        width: 50%;
+        float: left;
+    }
+    .btn{
+        text-align: right;
+    }
 }

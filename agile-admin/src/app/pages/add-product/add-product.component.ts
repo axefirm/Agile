@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit {
-
   image: any;
   constructor(private router: Router, public formBuilder: FormBuilder) {
     // Reactive Form
@@ -24,19 +23,28 @@ export class AddProductComponent implements OnInit {
     this.main = this.formBuilder.group({
       productName: new FormControl('', [Validators.required]),
       productCode: new FormControl(''),
-      productPrice: new FormControl(''),
-      productSale: new FormControl(''),
+      productPrice: new FormControl('0'),
+      productSale: new FormControl('0'),
       productTotalCount: new FormControl(''),
       productDescription: new FormControl(''),
-      productStatus: new FormControl(''),
-      hasDeliver: new FormControl(''),
-      controlTotalCount: new FormControl(''),
+      productStatus: new FormControl(false),
+      hasDeliver: new FormControl(false),
+      controlTotalCount: new FormControl(false),
+      categories: new FormArray([
+      ])
     });
   }
 
-  addProduct() {
-    this.router.navigate(['register']);
+  get categories(): FormArray {
+    return this.main.get('categories') as FormArray;
   }
+
+  addSkills(param) {
+    this.categories.push(this.formBuilder.group({ _id: param }));
+    console.log(this.main.value);
+  }
+
+
   imageURL: string;
   uploadForm: FormGroup;
 

@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -66,6 +67,7 @@ export function tokenGetter() {
     MatTabsModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatCheckboxModule,
     // TODO: Domain Add
     JwtModule.forRoot({
       config: {
