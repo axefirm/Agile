@@ -1,7 +1,7 @@
 let db_config = require('../config/db_config');
 let db;
 let jwt = require('jsonwebtoken');
-ObjectID = require('mongodb').ObjectID;
+const { ObjectID } = require('mongodb').ObjectID;
 
 module.exports.login = function (req, res) {
     db = db_config.getDb();
@@ -15,7 +15,7 @@ module.exports.login = function (req, res) {
                 _id: foundOne._id
             }, "agile")
             foundOne.token = token;
-            db.collection("admin").updateOne({ _id: ObjectID(foundOne._id) }, { $set: foundOne }, function (err, dbres) {
+            db.collection("user").updateOne({ _id: ObjectID(foundOne._id) }, { $set: foundOne }, function (err, dbres) {
                 if (err) return res.json({ success: false, data: { message: "Server Error Mongodb!!" } })
                 else return res.json({ success: true, data: { token: foundOne.token, _id: foundOne._id } })
             })
@@ -33,9 +33,35 @@ module.exports.signup = function (req, res) {
             let data = req.body;
             data.token = "";
             db.collection('user').insertOne(data);
-            return res.json({ success: true, data: { message: "Registered successfully!" } })
+            db.collection("user").findOne({ phoneNumber: req.body.phoneNumber }, function (err, foundOneMore) {
+                return res.json({ success: true, data: { message: "Амжилттай хадгаллаа!", _id: foundOneMore._id } })
+            })
         } else {
-            return res.json({ success: false, data: { message: "Already registered!" } })
+            return res.json({ success: false, data: { message: "Энэ дугаар дээр бүртгүүлсэн байна!" } })
+        }
+    })
+}
+module.exports.getMerchData = function (req, res) {
+    db = db_config.getDb();
+    db.collection("merchant").findOne({ custId: req.body.custId }, function (err, foundOne) {
+        if (!foundOne) {
+            return res.json({ success: true, data: { merchData: foundOne } })
+        } else {
+            return res.json({ success: false, data: { message: "Алдаа гарлаа!" } })
+        }
+    })
+}
+
+module.exports.getCustData = function (req, res) {
+    db = db_config.getDb();
+    console.log(ObjectID(req.body.custId));
+    db.collection("user").findOne({ _id: ObjectID(req.body.custId) }, function (err, foundOne) {
+        console.log(foundOne);
+        if (foundOne) {
+            delete foundOne.password;
+            return res.json({ success: true, data: { custData: foundOne } })
+        } else {
+            return res.json({ success: false, data: { message: "Алдаа гарлаа!" } })
         }
     })
 }
@@ -66,3 +92,5 @@ module.exports.test = function (req, res) {
         else return res.json({ success: true, data: { blogs: blogs } })
     })
 }
+
+

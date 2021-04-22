@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
     if (this.main.valid) {
       this.api.signup(this.main.value).subscribe(res => {
         if (res.success) {
-          sessionStorage.setItem('token', 'true');
+          sessionStorage.setItem('custId', res.data._id);
           this.router.navigate(['create']);
         } else {
           console.log(res);

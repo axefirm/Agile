@@ -39,12 +39,17 @@ export class HttpService {
     // Token
     const token = sessionStorage.getItem('token');
 
+    const custId = sessionStorage.getItem('custId');
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    
+
     if (token) {
       headers.append('token', token);
+    }
+    if (custId) {
+      headers.append('custId', custId);
     }
 
 

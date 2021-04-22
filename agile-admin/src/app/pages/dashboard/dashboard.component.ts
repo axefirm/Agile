@@ -17,7 +17,7 @@ export type ChartOptions = {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  custDataRes;
   public chartOptions: Partial<ChartOptions>;
 
   constructor(private api: ApiService) {
@@ -58,9 +58,14 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.test().subscribe(res => {
-      console.log(res);
-    });
+    var custId = sessionStorage.getItem('custId');
+    console.log(custId);
+    var data = { custId: custId };
+    this.api.getCustData(data).subscribe(res => {
+      if (res.success) {
+        this.custDataRes = res.data.custData;
+      }
+    })
   }
 
 }

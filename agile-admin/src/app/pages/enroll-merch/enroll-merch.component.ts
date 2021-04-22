@@ -27,7 +27,9 @@ export class EnrollMerchComponent implements OnInit {
   //#endregion
   ngOnInit(): void {
     this.intervalRequest();
+    var custId = sessionStorage.getItem('custId');
     this.main = this.formBuilder.group({
+      custId: new FormControl(custId),
       shopName: new FormControl('', [Validators.required, Validators.maxLength(40)]),
       address: new FormControl('', [Validators.maxLength(50)]),
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(40)]),
@@ -59,7 +61,8 @@ export class EnrollMerchComponent implements OnInit {
       this.api.createShop(this.main.value).subscribe(res => {
         console.log(res);
         if (res.success) {
-          this.router.navigate(['dashboard']);
+          alert(res.data.message);
+          this.router.navigate(['']);
         } else {
           console.log(res);
           alert(res.data.message);

@@ -28,6 +28,14 @@ export class ApiService {
   addProduct(data) {
     return this.http.post(Operation.addProduct, data);
   }
+  
+  getCustData(data) {
+    return this.http.post(Operation.getCustData, data);
+  }
+
+  getMerchData(data) {
+    return this.http.post(Operation.getMerchData, data);
+  }
 
   test() {
     return this.http.retrieve(Operation.test);

@@ -59,6 +59,8 @@ export class LoginComponent implements OnInit {
       this.api.login(this.main.value).subscribe(res => {
         if (res.success) {
           sessionStorage.setItem('token', res.data.token);
+          sessionStorage.setItem('custId', res.data._id);
+          
           this.router.navigate(['dashboard']);
         }
       }, err => {

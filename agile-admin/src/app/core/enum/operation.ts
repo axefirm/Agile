@@ -4,6 +4,8 @@ export class Operation {
     static login = 'login';
     static signup = 'signup';
     static createShop = 'createShop';
+    static getCustData = 'getCustData';
+    static getMerchData = 'getMerchData';
 
     // Бүтээгдэхүүн холбоотой operations
     static addProduct = 'addProduct';
