@@ -18,9 +18,16 @@ export class AddProductComponent implements OnInit {
       name: ['']
     });
   }
+  menuList: any;
+  public theBoundCallback: Function;
 
   main: FormGroup;
   ngOnInit(): void {
+
+    this.theBoundCallback = this.onChange.bind(this);
+    this.api.getCategories().subscribe(resCategory => {
+      this.menuList = resCategory.data.categories;
+    })
     this.main = this.formBuilder.group({
       productName: new FormControl('', [Validators.required]),
       productCode: new FormControl(''),
@@ -45,7 +52,9 @@ export class AddProductComponent implements OnInit {
     console.log(this.main.value);
   }
 
-
+  onChange(e) {
+    console.log(e);
+  }
   imageURL: string;
   uploadForm: FormGroup;
 
@@ -70,7 +79,10 @@ export class AddProductComponent implements OnInit {
   // Submit Form
   submit() {
     if (this.main.valid) {
-      this.api.addProduct(this.main.value).subscribe(res => {
+      var req = this.main.value;
+      req.shopId = sessionStorage.getItem('shopId');
+      console.log(req);
+      this.api.addProduct(req).subscribe(res => {
         if (res.success) {
           console.log(res);
           alert(res.data.message);

@@ -59,11 +59,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     var custId = sessionStorage.getItem('custId');
-    console.log(custId);
     var data = { custId: custId };
     this.api.getCustData(data).subscribe(res => {
       if (res.success) {
         this.custDataRes = res.data.custData;
+        sessionStorage.setItem('shopId', res.data.custData.shopId);
       }
     })
   }

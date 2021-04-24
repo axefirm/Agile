@@ -9,6 +9,10 @@ export class Operation {
 
     // Бүтээгдэхүүн холбоотой operations
     static addProduct = 'addProduct';
+    static addCategory = 'addCategory';
+    static getCategories = 'getCategories';
+    static updateNameOfCategory = 'updateNameOfCategory';
+    static deleteCategory = 'deleteCategory';
 
     static test = 'test';
 }

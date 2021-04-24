@@ -2,6 +2,35 @@
 
 <div class="area">
   <div class="main">
-    this is main.
+    <div class="header">
+      Ангилал
+    </div>
+    <div class="body">
+      <button mat-flat-button class="btn" (click)="addCategory(0)">
+        <mat-icon>add</mat-icon>Ангилал нэмэх
+      </button>
+      <div *ngIf=" menuList.length != 0" class="grid-2">
+        <div class="card-background">
+          <app-sub-category [data]="menuList" [function]="theBoundCallback"></app-sub-category>
+        </div>
+        <div class="card-background">
+          Ангилал: {{selected?.categoryName}}
+          <div *ngIf="selected" style="margin-top: 20px;">
+            <button mat-flat-button style="margin-right: 20px;" class="btn" (click)="addCategory(1)">
+              Дэд ангилал нэмэх
+            </button>
+            <button mat-flat-button class="btn" style="margin-right: 20px;" (click)="changeName()">
+              Нэр солих
+            </button>
+            <button mat-flat-button class="btn" (click)="delete()">
+              Устгах
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>

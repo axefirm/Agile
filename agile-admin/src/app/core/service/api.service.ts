@@ -28,7 +28,7 @@ export class ApiService {
   addProduct(data) {
     return this.http.post(Operation.addProduct, data);
   }
-  
+
   getCustData(data) {
     return this.http.post(Operation.getCustData, data);
   }
@@ -36,6 +36,21 @@ export class ApiService {
   getMerchData(data) {
     return this.http.post(Operation.getMerchData, data);
   }
+  addCategory(data) {
+    return this.http.post(Operation.addCategory, data);
+  }
+  getCategories() {
+    return this.http.retrieve(Operation.getCategories);
+  }
+
+  updateNameOfCategory(data) {
+    return this.http.post(Operation.updateNameOfCategory, data);
+  }
+
+  deleteCategory(data) {
+    return this.http.post(Operation.deleteCategory, data);
+  }
+
 
   test() {
     return this.http.retrieve(Operation.test);

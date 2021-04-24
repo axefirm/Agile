@@ -60,8 +60,15 @@ export class LoginComponent implements OnInit {
         if (res.success) {
           sessionStorage.setItem('token', res.data.token);
           sessionStorage.setItem('custId', res.data._id);
-          
-          this.router.navigate(['dashboard']);
+          sessionStorage.setItem('shopId', res.data.shopId);
+
+          if (res.data.code != null && res.data.code == 1) {
+            this.router.navigate(['create']);
+          } else {
+            this.router.navigate(['dashboard']);
+          }
+        } else {
+          alert(res.data.message);
         }
       }, err => {
         console.log(err);

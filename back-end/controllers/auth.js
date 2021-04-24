@@ -5,7 +5,7 @@ const { ObjectID } = require('mongodb').ObjectID;
 
 module.exports.login = function (req, res) {
     db = db_config.getDb();
-    db.collection("user").findOne({ phone: req.body.phone }, function (err, foundOne) {
+    db.collection("user").findOne({ phoneNumber: req.body.phoneNumber }, function (err, foundOne) {
         if (err) return res.json({ success: false, data: { message: "Server Error Mongodb!" } })
         if (!foundOne) return res.json({ success: false, data: { message: "Username and Password is Wrong!" } })
         if (foundOne.password == req.body.password) {
@@ -17,7 +17,10 @@ module.exports.login = function (req, res) {
             foundOne.token = token;
             db.collection("user").updateOne({ _id: ObjectID(foundOne._id) }, { $set: foundOne }, function (err, dbres) {
                 if (err) return res.json({ success: false, data: { message: "Server Error Mongodb!!" } })
-                else return res.json({ success: true, data: { token: foundOne.token, _id: foundOne._id } })
+                else {
+                    if (!foundOne.shopId) res.json({ success: true, data: { token: foundOne.token, _id: foundOne._id, code: 1 } })
+                    else return res.json({ success: true, data: { token: foundOne.token, _id: foundOne._id } })
+                }
             })
         } else {
             return res.json({ success: false, data: { message: "Username and Password is Wrong!" } })
@@ -41,6 +44,7 @@ module.exports.signup = function (req, res) {
         }
     })
 }
+
 module.exports.getMerchData = function (req, res) {
     db = db_config.getDb();
     db.collection("merchant").findOne({ custId: req.body.custId }, function (err, foundOne) {
@@ -54,12 +58,15 @@ module.exports.getMerchData = function (req, res) {
 
 module.exports.getCustData = function (req, res) {
     db = db_config.getDb();
-    console.log(ObjectID(req.body.custId));
     db.collection("user").findOne({ _id: ObjectID(req.body.custId) }, function (err, foundOne) {
-        console.log(foundOne);
         if (foundOne) {
             delete foundOne.password;
-            return res.json({ success: true, data: { custData: foundOne } })
+            delete foundOne.token;
+            db.collection("merchant").findOne({ _id: foundOne.shopId }, function (err, merchFound) {
+                if (err) console.log(err);
+                foundOne.merchData = merchFound;
+                return res.json({ success: true, data: { custData: foundOne } })
+            })
         } else {
             return res.json({ success: false, data: { message: "Алдаа гарлаа!" } })
         }
@@ -83,7 +90,6 @@ module.exports.checkToken = function (req, res, next) {
         })
     } else return res.json({ success: false, data: { message: "Please login" } })
 }
-
 
 module.exports.test = function (req, res) {
     db = db_config.getDb();

@@ -36,22 +36,29 @@ export class HttpService {
   }
 
   retrieve(operation: any): Observable<any> {
-    // Token
-    const token = sessionStorage.getItem('token');
-
-    const custId = sessionStorage.getItem('custId');
-
-    const headers = new HttpHeaders({
+    let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
+    // Token
+    const token = sessionStorage.getItem('token');
+    const custId = sessionStorage.getItem('custId');
+    const shopId = sessionStorage.getItem('shopId');
 
     if (token) {
-      headers.append('token', token);
-    }
-    if (custId) {
-      headers.append('custId', custId);
+      headers = headers.append('token', token);
     }
 
+    if (custId) {
+      headers = headers.append('custId', custId);
+    }
+
+
+    if (shopId) {
+      headers = headers.append('shopId', shopId);
+    }
+
+
+    console.log(headers);
 
     return this.http
       .get(this.url + operation, { headers })
@@ -134,18 +141,30 @@ export class HttpService {
    * @returns Observable буцаана
    */
   post(operation: string, body: any): Observable<any> {
-    // Token
-    const token = sessionStorage.getItem('token');
 
-    const headers = new HttpHeaders()
+    let headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Access-Control-Allow-Headers', 'Content-Type')
       .append('Access-Control-Allow-Methods', 'GET')
       .append('Access-Control-Allow-Origin', '*');
-
+    // Token
+    const token = sessionStorage.getItem('token');
+    const custId = sessionStorage.getItem('custId');
+    const shopId = sessionStorage.getItem('shopId');
+    
     if (token) {
-      headers.append('token', token);
+      headers = headers.append('token', token);
     }
+
+    if (custId) {
+      headers = headers.append('custId', custId);
+    }
+
+
+    if (shopId) {
+      headers = headers.append('shopId', shopId);
+    }
+
 
     return this.http
       .post(

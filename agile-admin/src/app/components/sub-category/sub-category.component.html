@@ -1,0 +1,12 @@
+<mat-selection-list [multiple]="multiple" class="list1">
+    <ng-container *ngFor="let menu of data">
+        <mat-list-option [value]="menu" #selectedOpt (click)="function(selectedOpt)">
+            {{menu.categoryName}}
+        </mat-list-option>
+        <ng-container *ngIf="menu.children">
+            <div style="padding-left:10px;">
+                <app-sub-category [data]="menu.children" [multiple]="multiple" [function]="function"></app-sub-category>
+            </div>
+        </ng-container>
+    </ng-container>
+</mat-selection-list>

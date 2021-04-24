@@ -57,14 +57,11 @@ export class EnrollMerchComponent implements OnInit {
 
   createShop() {
     if (this.main.valid) {
-      console.log(this.main.value);
       this.api.createShop(this.main.value).subscribe(res => {
-        console.log(res);
         if (res.success) {
           alert(res.data.message);
           this.router.navigate(['']);
         } else {
-          console.log(res);
           alert(res.data.message);
         }
       }, err => {

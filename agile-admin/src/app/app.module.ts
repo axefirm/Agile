@@ -11,6 +11,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +31,9 @@ import { ProductMiniComponent } from './components/product-mini/product-mini.com
 import { HttpClientModule } from '@angular/common/http';
 import { EnrollMerchComponent } from './pages/enroll-merch/enroll-merch.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
+import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { SubCategoryComponent } from './components/sub-category/sub-category.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 export function tokenGetter() {
@@ -49,6 +54,9 @@ export function tokenGetter() {
     ProductMiniComponent,
     EnrollMerchComponent,
     AddProductComponent,
+    AddCategoryComponent,
+    SubCategoryComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +76,8 @@ export function tokenGetter() {
     MatSidenavModule,
     MatSlideToggleModule,
     MatCheckboxModule,
+    MatListModule,
+    MatDialogModule,
     // TODO: Domain Add
     JwtModule.forRoot({
       config: {

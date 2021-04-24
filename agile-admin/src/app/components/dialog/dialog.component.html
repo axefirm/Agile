@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+    <ng-container *ngIf="data?.categoryName != undefined">
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.categoryName">
+        </mat-form-field>
+    </ng-container>
+    <ng-container *ngIf="data?.description">
+        {{data?.description}}
+    </ng-container>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Болих</button>
+    <button mat-button (click)="submit()" cdkFocusInitial>{{buttonName}}</button>
+</div>
