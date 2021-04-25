@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
       lastName: new FormControl('', [Validators.required, Validators.maxLength(40)]),
       phoneNumber: new FormControl('', [Validators.required, Validators.maxLength(8)]),
       password: new FormControl('', [Validators.required]),
+      isMerch: new FormControl(true),
     });
   }
 

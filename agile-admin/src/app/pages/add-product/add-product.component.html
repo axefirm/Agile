@@ -36,18 +36,24 @@
         </div>
         <div class="photo card-background">
           Барааны зураг
-          <div class="upload-photo">
-            Зураг оруулна уу!
-            <!-- <form [formGroup]="uploadForm" (ngSubmit)="submit()">
-            <input type="file" accept="image/*" (change)="showPreview($event)" />
+          <input type="file" #photo class="input-photo" accept="image/*" (change)="showPreview($event)" />
 
-            <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
-              <img [src]="imageURL" [alt]="uploadForm.value.name">
-            </div>
-            <input formControlName="name" placeholder="Enter name">
+          <div class="upload-photo" (click)="photo.click()">
+            Энд дарна уу!
+          </div>
 
-            <button type="submit">Submit</button>
-          </form> -->
+          <div *ngIf="filePaths && filePaths.length != 0">
+            <ng-container *ngFor="let item of filePaths;  let i = index">
+              <div class="img-container">
+                <img [src]="item" class="preview">
+                <div class="center">
+                  Зураг {{i + 1}}
+                </div>
+                <div class="center close">
+                  <mat-icon (click)="close(i)">close</mat-icon>
+                </div>
+              </div>
+            </ng-container>
           </div>
         </div>
         <div class="info card-background">
@@ -101,7 +107,7 @@
 
             </mat-tab>
             <mat-tab label="Ангилал">
-              <app-sub-category [data]="menuList" [function]="theBoundCallback" [multiple] = "true"></app-sub-category>
+              <app-sub-category [data]="menuList" [function]="theBoundCallback" [multiple]="true"></app-sub-category>
             </mat-tab>
           </mat-tab-group>
         </div>

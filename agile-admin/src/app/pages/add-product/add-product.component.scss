@@ -23,6 +23,7 @@
 
 .photo {
     grid-area: photo;
+    
 }
 
 .info {
@@ -37,6 +38,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .input {
     flex: 50%;
@@ -66,5 +68,27 @@
     }
     .btn{
         text-align: right;
+    }
+}
+
+.input-photo{
+    display: none;
+}
+
+.img-container{
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: space-around;
+
+    .preview{
+        padding: 5px;
+        width: 30%;
+    }
+    .close{
+        cursor: pointer;
+        color: red;
     }
 }

@@ -31,6 +31,7 @@ module.exports.login = function (req, res) {
 
 module.exports.signup = function (req, res) {
     db = db_config.getDb();
+    req.body.createdAt = new Date();
     db.collection("user").findOne({ phoneNumber: req.body.phoneNumber }, function (err, foundOne) {
         if (!foundOne) {
             let data = req.body;

@@ -68,22 +68,13 @@ export class HttpService {
       );
   }
 
-  uploadImage(file: File): Observable<any> {
-    if (file) {
-      const uploadFile: FormData = new FormData();
-      uploadFile.append('uploadFile', file, file.name);
-      return this.http
-        .post('/api/application/upload', uploadFile);
-    }
-    return throwError('Файл алдаатай байна');
-  }
-
   uploadFile(file: File): Observable<any> {
     if (file) {
+      console.log(file);
       const uploadFile: FormData = new FormData();
-      uploadFile.append('uploadFile', file, file.name);
+      uploadFile.append('files', file, file.name);
       return this.http
-        .post('/api/application/upload', uploadFile);
+        .post(this.url + 'fileUpload', uploadFile);
     }
     return throwError('Файл алдаатай байна');
   }
@@ -151,7 +142,7 @@ export class HttpService {
     const token = sessionStorage.getItem('token');
     const custId = sessionStorage.getItem('custId');
     const shopId = sessionStorage.getItem('shopId');
-    
+
     if (token) {
       headers = headers.append('token', token);
     }

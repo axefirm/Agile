@@ -11,8 +11,13 @@ export class Operation {
     static addProduct = 'addProduct';
     static addCategory = 'addCategory';
     static getCategories = 'getCategories';
+    static getProducts = 'getProducts';
+    static getProductDetail = 'getProductDetail';
     static updateNameOfCategory = 'updateNameOfCategory';
-    static deleteCategory = 'deleteCategory';
+    static updateProductDetail = 'updateProductDetail';
+    static fileUpload = 'fileUpload';
 
+    static deleteCategory = 'deleteCategory';
+    static deleteProduct = 'deleteProduct';
     static test = 'test';
 }

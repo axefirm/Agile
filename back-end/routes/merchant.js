@@ -8,6 +8,10 @@ router.post("/addProduct", merchant.addProduct);
 router.post("/addCategory", merchant.addCategory);
 router.get("/getCategories", merchant.getCategories);
 router.post("/updateNameOfCategory", merchant.updateNameOfCategory);
+router.post("/updateProductDetail", merchant.updateProductDetail);
 router.post("/deleteCategory", merchant.deleteCategory);
+router.post("/deleteProduct", merchant.deleteProduct);
+router.get("/getProducts", merchant.getProducts);
+router.get("/getProductDetail", merchant.getProductDetail);
 
 module.exports = router;

@@ -43,14 +43,32 @@ export class ApiService {
     return this.http.retrieve(Operation.getCategories);
   }
 
+  getProducts() {
+    return this.http.retrieve(Operation.getProducts);
+  }
+
+  getProductDetail(id) {
+    return this.http.retrieve(Operation.getProductDetail + "?productId=" + id);
+  }
+
   updateNameOfCategory(data) {
     return this.http.post(Operation.updateNameOfCategory, data);
+  }
+
+  updateProductDetail(data) {
+    return this.http.post(Operation.updateProductDetail, data);
   }
 
   deleteCategory(data) {
     return this.http.post(Operation.deleteCategory, data);
   }
 
+  deleteProduct(data) {
+    return this.http.post(Operation.deleteProduct, data);
+  }
+  upload(data) {
+    return this.http.uploadFile(data);
+  }
 
   test() {
     return this.http.retrieve(Operation.test);
