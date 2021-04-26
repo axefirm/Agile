@@ -92,8 +92,12 @@ module.exports.getCategories = function (req, res) {
                 } else {
                     for (var value of data) {
                         if (String(value._id) == String(item.parentId)) {
-                            value.children = [];
-                            value.children.push(item);
+                            if(value.children == null &&  value.children == undefined){
+                                value.children = [];
+                                value.children.push(item);
+                            }else{
+                                value.children.push(item);
+                            }
                         }
                     }
                 }

@@ -2,8 +2,8 @@
 
   <div class="main-section">
     <div class="slider-section">
-      <div class="header">Welcome!</div>
-      <div class="sub-header">Create your own ecommerce website</div>
+      <div class="header">Тавтай морил!</div>
+      <div class="sub-header">Өөрийн вебсайтаа бүтээгээрэй.</div>
       <div class="img-container">
         <img *ngIf="indicator == 0" class="img" src="assets/img/login/finance.svg" alt="">
         <img *ngIf="indicator == 1" class="img" src="assets/img/login/all_the_data.svg" alt="">
@@ -31,8 +31,7 @@
           Нэр
         </div>
         <mat-form-field appearance="outline" class="full-width">
-          <input type="text"  maxlength="40" matInput placeholder="Last name" formControlName="lastName"
-            required>
+          <input type="text" maxlength="40" matInput placeholder="Last name" formControlName="lastName" required>
         </mat-form-field>
         <div class="paraph">
           Утасны дугаар
@@ -48,7 +47,6 @@
           <input matInput type="password" placeholder="Password" formControlName="password" required>
         </mat-form-field>
 
-        <div class="paraph" style=" margin-bottom: 1rem;">Нууц үг мартсан?</div>
         <button mat-flat-button class="btn full-width" (click)="signup()">Бүртгүүлэх</button>
       </form>
     </div>

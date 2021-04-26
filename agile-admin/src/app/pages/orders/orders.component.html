@@ -19,7 +19,7 @@
 
           <!-- Position Column -->
           <ng-container matColumnDef="photo">
-            <th mat-header-cell *matHeaderCellDef> Зураг </th>
+            <th mat-header-cell *matHeaderCellDef> Захиалсан бүтээгдэхүүн </th>
             <td mat-cell *matCellDef="let element">
               <img style="width: 40px;" src="http://localhost:3000/public/photo/{{element.photo}}">
             </td>
@@ -27,7 +27,7 @@
 
           <!-- Name Column -->
           <ng-container matColumnDef="productName">
-            <th mat-header-cell *matHeaderCellDef> Барааны нэр </th>
+            <th mat-header-cell *matHeaderCellDef> Нийт дүн </th>
             <td mat-cell *matCellDef="let element">
               <span class="bold pointer" (click)="detail(element)">{{element.productName}}</span>
             </td>
@@ -41,26 +41,21 @@
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="productPrice">
-            <th mat-header-cell *matHeaderCellDef> Үнэ </th>
+            <th mat-header-cell *matHeaderCellDef> Утас </th>
             <td mat-cell *matCellDef="let element"> {{element.productPrice}} </td>
           </ng-container>
 
           <ng-container matColumnDef="productStatus">
             <th mat-header-cell *matHeaderCellDef> Төлөв </th>
             <td mat-cell *matCellDef="let element">
-              <ng-container *ngIf="element.productStatus">
-                Идэвхтэй
-              </ng-container>
-              <ng-container *ngIf="!element.productStatus">
-                Идэвхгүй
-              </ng-container>
+              Төлбөр төлөгдсөн
             </td>
           </ng-container>
 
           <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Үйлдэл </th>
             <td mat-cell *matCellDef="let element">
-              <mat-icon class="pointer" (click)="delete(element)">delete</mat-icon>
+              <mat-icon class="pointer">edit</mat-icon>
             </td>
           </ng-container>
 
