@@ -9,8 +9,9 @@ export class SideMenuComponent implements OnInit {
   @Input() index: number;
 
   constructor() { }
-
+  shopName;
   ngOnInit(): void {
+    this.shopName = localStorage.getItem('shopName');
   }
 
 }

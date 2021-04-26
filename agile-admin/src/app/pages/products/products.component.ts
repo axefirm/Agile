@@ -20,7 +20,7 @@ export class ProductsComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     this.api.getProducts().subscribe(res => {
       this.dataSource = res.data.products;
-    })
+    });
   }
 
 
@@ -36,15 +36,16 @@ export class ProductsComponent implements AfterViewInit, OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
   delete(e) {
-    var req;
+    let req;
     console.log(e);
     req = e;
     this.api.deleteProduct(req).subscribe(res => {
       if (res.success) {
         alert(res.data.message);
-        this.api.getProducts().subscribe(res => {
-          this.dataSource = res.data.products;
+        this.api.getProducts().subscribe(prodRes => {
+          this.dataSource = prodRes.data.products;
         })
       } else {
         alert(res.data.message);

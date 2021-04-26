@@ -33,8 +33,8 @@ export class ApiService {
     return this.http.post(Operation.getCustData, data);
   }
 
-  getMerchData(data) {
-    return this.http.post(Operation.getMerchData, data);
+  getMerchData() {
+    return this.http.retrieve(Operation.getMerchData);
   }
   addCategory(data) {
     return this.http.post(Operation.addCategory, data);
@@ -45,6 +45,10 @@ export class ApiService {
 
   getProducts() {
     return this.http.retrieve(Operation.getProducts);
+  }
+
+  getOrders() {
+    return this.http.retrieve(Operation.getOrders);
   }
 
   getProductDetail(id) {

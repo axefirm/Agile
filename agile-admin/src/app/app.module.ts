@@ -34,6 +34,8 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
 import { AddCategoryComponent } from './pages/add-category/add-category.component';
 import { SubCategoryComponent } from './components/sub-category/sub-category.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { AddOrderComponent } from './pages/add-order/add-order.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 export function tokenGetter() {
@@ -57,6 +59,8 @@ export function tokenGetter() {
     AddCategoryComponent,
     SubCategoryComponent,
     DialogComponent,
+    AddOrderComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

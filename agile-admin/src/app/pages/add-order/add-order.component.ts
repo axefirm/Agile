@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/core/service/api.service';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  selector: 'app-add-order',
+  templateUrl: './add-order.component.html',
+  styleUrls: ['./add-order.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class AddOrderComponent implements OnInit {
+
   image: any;
   constructor(private router: Router, public formBuilder: FormBuilder, private api: ApiService, private route: ActivatedRoute) {
     // Reactive Form
@@ -18,6 +20,18 @@ export class AddProductComponent implements OnInit {
       name: ['']
     });
   }
+
+  displayedColumns: string[] = ['photo', 'productName', 'date', 'productPrice', 'productStatus', 'action'];
+  dataSource = new MatTableDataSource<any>();
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   menuList: any;
   data: any;
   categoryList: any = [];
@@ -34,6 +48,9 @@ export class AddProductComponent implements OnInit {
       this.menuList = resCategory.data.categories;
     });
 
+    this.api.getProducts().subscribe(res => {
+      this.dataSource = res.data.products;
+    });
     // console.log(this.router.getCurrentNavigation().extras.state.example); // 
     this.main = this.formBuilder.group({
       productName: new FormControl('', [Validators.required]),
@@ -72,6 +89,15 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   get categories(): FormArray {
     return this.main.get('categories') as FormArray;
   }
@@ -107,8 +133,8 @@ export class AddProductComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.filePaths.push(reader.result as string);
-    };
-    reader.readAsDataURL(file);
+    }
+    reader.readAsDataURL(file)
   }
 
   test() {
@@ -125,9 +151,9 @@ export class AddProductComponent implements OnInit {
         req._id = this.data._id;
         req.shopId = this.data.shopId;
         req.categories = this.categoryList;
-        if (this.filePaths.length !== 0) {
-          console.log(this.filePaths);
-          this.api.upload(this.filePaths).subscribe(resPhoto => {
+        if (this.selectedFiles) {
+          console.log(this.selectedFiles);
+          this.api.upload(this.selectedFiles).subscribe(resPhoto => {
             console.log(resPhoto);
             req.photo = resPhoto.data.path;
             this.api.updateProductDetail(req).subscribe(res => {
@@ -163,10 +189,10 @@ export class AddProductComponent implements OnInit {
         req.shopId = sessionStorage.getItem('shopId');
         req.categories = this.categoryList;
         console.log(req);
-        if (this.filePaths.length !== 0) {
-          console.log(this.filePaths);
-          this.api.upload(this.filePaths).subscribe(resPhoto => {
-            console.log(resPhoto);
+        if (this.selectedFiles) {
+          console.log(this.selectedFiles);
+          this.api.upload(this.selectedFiles).subscribe(resPhoto => {
+            console.log(resPhoto)
             req.photo = resPhoto.data.path;
             this.api.addProduct(req).subscribe(res => {
               if (res.success) {
@@ -198,4 +224,5 @@ export class AddProductComponent implements OnInit {
       }
     }
   }
+
 }

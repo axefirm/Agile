@@ -78,6 +78,18 @@ export class HttpService {
     }
     return throwError('Файл алдаатай байна');
   }
+  uploadFiles(files): Observable<any> {
+    if (files) {
+      const images = new FormData();
+      for (const item of files) {
+        images.append(item, item.name);
+      }
+      console.log(images);
+      return this.http
+        .post(this.url + 'fileUpload',images);
+    }
+    return throwError('Файл алдаатай байна');
+  }
 
   private getLang(): string {
     return sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'mn';

@@ -8,6 +8,7 @@ var db = require('./config/db_config');
 
 let auth = require('./routes/auth');
 let merchant = require('./routes/merchant');
+let order = require('./routes/order');
 let fileUpload = require('express-fileupload');
 let fileUploadRoute = require('./routes/fileUpload');
 // Mongodb connection
@@ -29,6 +30,7 @@ app.use('/public', express.static('public'));
 app.use(auth);
 app.use(merchant);
 app.use(fileUploadRoute);
+app.use(order);
 
 server.listen(config.api.PORT, function () {
   console.log("Server is Up and Running " + config.api.PORT);

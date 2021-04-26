@@ -12,6 +12,7 @@ export class Operation {
     static addCategory = 'addCategory';
     static getCategories = 'getCategories';
     static getProducts = 'getProducts';
+    static getOrders = 'getOrders';
     static getProductDetail = 'getProductDetail';
     static updateNameOfCategory = 'updateNameOfCategory';
     static updateProductDetail = 'updateProductDetail';

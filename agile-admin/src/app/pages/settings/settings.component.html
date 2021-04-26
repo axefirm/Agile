@@ -1,0 +1,128 @@
+<app-side-menu [index]="5"></app-side-menu>
+
+<div class="area">
+
+  <div class="main">
+
+    <div class="grid-2">
+      <div class="header">
+        Бараа нэмэх
+      </div>
+      <div class="right">
+        <button mat-flat-button class="btn" type="submit">
+          <mat-icon>save</mat-icon>Хадгалах
+        </button>
+      </div>
+    </div>
+
+    <form [formGroup]="main">
+      <div class="main-container">
+        <div class="setting card-background">
+          Ерөнхий мэдээлэл
+          <div class="profile-img">
+            <img  src="http://localhost:3000/public/photo/profile.png">
+          </div>
+          <!-- <div>
+          <mat-slide-toggle class="paraph" color="primary" formControlName="productStatus">
+            Барааны төлөв
+          </mat-slide-toggle>
+        </div>
+        <div>
+          <mat-slide-toggle class="paraph" color="primary" formControlName="controlTotalCount">
+            Барааны тоо ширхэгийг удирдана
+          </mat-slide-toggle>
+        </div>
+        <div>
+          <mat-slide-toggle class="paraph" color="primary" formControlName="hasDeliver">
+            Хүргэлттэй бараа
+          </mat-slide-toggle>
+        </div> -->
+        </div>
+        <div class="photo card-background">
+          Сошиал хаягууд
+          <div>
+            <div class="paraph">
+              Facebook хаяг
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="https://www.facebook.com/" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <div class="paraph">
+              Instagram хаяг
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="https://www.instagram.com/" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <div class="paraph">
+              Youtube хаяг
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="https://www.youtube.com/" required>
+            </mat-form-field>
+          </div>
+
+
+        </div>
+        <div class="info card-background">
+          <div class="input-container">
+            <div class="paraph">
+              Нэр
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="Shop name" formControlName="shopName" required>
+            </mat-form-field>
+          </div>
+
+          <div class="input-container">
+            <div class="paraph">
+              Утасны дугаар
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="8" minlength="8" matInput placeholder="Telephone"
+                formControlName="telephone" required>
+            </mat-form-field>
+          </div>
+          <div class="input-container">
+            <div class="paraph">
+              Хаяг
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="Address" formControlName="address">
+            </mat-form-field>
+          </div>
+          <div class="input-container">
+            <div class="paraph">
+              Имэйл хаяг
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="Email" formControlName="email" required>
+            </mat-form-field>
+          </div>
+          <div class="input-container">
+            <div class="paraph">
+              Тайлбар
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <textarea matInput formControlName="detail"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="input-container">
+            <div class="paraph">
+              Дэлгүүрийн цахим хаяг
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+              <input type="text" maxlength="40" matInput placeholder="Domain" formControlName="domain" required>
+              <span matSuffix>.agile.shop</span>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

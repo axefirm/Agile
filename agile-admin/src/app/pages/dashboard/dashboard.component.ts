@@ -58,14 +58,16 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var custId = sessionStorage.getItem('custId');
-    var data = { custId: custId };
+    const custId = sessionStorage.getItem('custId');
+    const data = { custId };
     this.api.getCustData(data).subscribe(res => {
       if (res.success) {
         this.custDataRes = res.data.custData;
+        console.log(res);
         sessionStorage.setItem('shopId', res.data.custData.shopId);
+        localStorage.setItem('shopName', res.data.custData.merchData.shopName);
       }
-    })
+    });
   }
 
 }

@@ -6,6 +6,6 @@ router.post("/login", auth.login)
 router.post("/signup", auth.signup)
 router.get("/test", auth.checkToken, auth.test)
 router.post("/getCustData", auth.getCustData)
-router.post("/getMerchData", auth.getMerchData)
+router.get("/getMerchData", auth.getMerchData)
 
 module.exports = router;

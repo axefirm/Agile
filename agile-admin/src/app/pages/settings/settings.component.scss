@@ -1,0 +1,177 @@
+@import "/src/app/colors.scss";
+
+.main {
+    display: grid;
+    grid-template-rows: 30px auto;
+    row-gap: 20px;
+}
+
+.main-container {
+    display: grid;
+    height: max-content;
+    height: 100%;
+    width: calc(100% - 20px);
+    gap: 20px;
+    grid-template:
+        "setting info" 50%
+        "photo info" / 30% 70%;
+}
+
+.setting {
+    grid-area: setting;
+}
+
+.photo {
+    grid-area: photo;
+}
+
+.info {
+    grid-area: info;
+}
+
+.upload-photo {
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.input {
+    flex: 50%;
+    width: 48%;
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.example-stretched-tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.example-stretched-tabs > div {
+    flex: 50%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+    /*demo*/
+    box-shadow: 0 0 0 1px black;
+    margin-bottom: 10px;
+}
+
+.mat-tab-label {
+    min-width: 0px !important;
+}
+.grid-2 {
+    div {
+        width: 50%;
+        float: left;
+    }
+    .btn {
+        text-align: right;
+    }
+}
+
+.input-photo {
+    display: none;
+}
+
+.img-container {
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: space-around;
+
+    .preview {
+        padding: 5px;
+        width: 30%;
+    }
+    .close {
+        cursor: pointer;
+        color: red;
+    }
+}
+
+@import "./../../colors.scss";
+.container-section {
+    width: 100vw;
+}
+
+.main-section {
+    margin: auto;
+    width: 70vw;
+    border-radius: 20px;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+}
+
+.slider-section {
+    height: 100%;
+    background-color: $main;
+    border-radius: 20px 0px 0px 20px;
+    color: $white;
+}
+
+.sub-header {
+    text-align: center;
+}
+
+.login-section {
+    height: 100%;
+    background-color: $gray1;
+    border-radius: 20px;
+    color: $black;
+
+    .sub-header {
+        color: $gray2;
+    }
+}
+
+.black {
+    color: $black;
+}
+
+.signup:hover {
+    cursor: pointer;
+}
+
+.img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    height: 300px;
+}
+
+.img {
+    width: 60%;
+}
+
+.form {
+    padding: 5% 10%;
+    display: inline-block;
+    width: 80%;
+}
+
+.input-container {
+    float: left;
+    width: calc(50% - 20px);
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .input-container {
+        float: left;
+        width: calc(100% - 20px);
+        margin-right: 20px;
+    }
+}
+
+.profile-img {
+    width: fit-content;
+
+    img {
+        padding: 10%;
+        width: 80%;
+    }
+}

@@ -1,7 +1,7 @@
 <div class="side-menu">
   <div class="container">
     <div class="menu-header header">
-      Agile
+      {{shopName}}
     </div>
   </div>
   <div class="container-left">
@@ -12,5 +12,7 @@
       [routerLink]="['/products']">Products</a>
     <a class="side-menu-item" [ngClass]="(index==4)?'side-menu-item-active':''"
       [routerLink]="['/categories']">Categories</a>
+    <a class="side-menu-item" [ngClass]="(index==5)?'side-menu-item-active':''"
+      [routerLink]="['/settings']">Settings</a>
   </div>
 </div>
