@@ -7,7 +7,7 @@ import {
 import { flatten } from 'lodash';
 import { map, catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
-import { GlobalVariable } from './../../../web-config';
+import { GlobalVariable } from '../../../web-config';
 
 @Injectable({
   providedIn: 'root'
