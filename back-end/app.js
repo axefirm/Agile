@@ -22,7 +22,10 @@ let server = require("http").Server(app);
 
 app.use(bodyParser.json({ limit: '10mb' }))
 app.use(bodyParser.urlencoded({ extended: true, limit: '128kb' }))
+
+// cors enable
 app.use(cors())
+
 // file upload
 app.use(fileUpload());
 
