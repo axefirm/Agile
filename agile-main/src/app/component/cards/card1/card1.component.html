@@ -1,0 +1,9 @@
+<div class="blog-box mb-4 mb-lg-0 product-box">
+    <img src="http://localhost:3000/public/photo/{{product.photo}}" alt="" class="img-fluid d-block mx-auto rounded">
+    <div class="product-name">
+        <a href="javascript: void(0);" class="text-dark font-weight-bold h5" [routerLink]="['/products', product._id]">{{product.productName}}</a>
+    </div>
+    <div class="">
+        <p class="text-muted font-size-15">{{product.productPrice}}₮</p>
+    </div>
+</div>

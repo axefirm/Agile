@@ -1,0 +1,10 @@
+.product-box{
+    background-color: #e8e8e8;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+
+}
+.product-name{
+    margin-top: 20px;
+}

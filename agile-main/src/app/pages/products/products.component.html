@@ -1,0 +1,25 @@
+<app-header1 [currentSection]="'products'"></app-header1>
+<!-- Blog start -->
+<section class="section" id="blog">
+    <div class="container">
+        <div class="row">
+            <ul class="list-inline text-muted font-size-14 font-weight-medium mt-3 mb-2">
+                <li class="list-inline-item mr-3">
+                    Нүүр
+                </li>
+                <li class="list-inline-item">
+                    / Бүтээгдэхүүн
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <ng-container *ngFor="let product of products">
+                <app-card1 class="col-lg-3" [product]="product"></app-card1>
+            </ng-container>
+        </div>
+    </div>
+</section>
+<!-- Blog End -->
+
+<app-footer1></app-footer1>

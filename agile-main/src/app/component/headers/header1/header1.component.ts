@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'app-header1',
@@ -6,25 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header1.component.css']
 })
 export class Header1Component implements OnInit {
-
-
-  currentSection = 'home';
+  @Input() currentSection = 'home';
 
   constructor() { }
 
+  loggedIn = false;
+  user: SocialUser;
+  merchData: any;
   ngOnInit(): void {
-  }
+    this.user = JSON.parse(localStorage.getItem('facebook_auth'));
 
-  /**
-   * Window scroll method
-   */
-  windowScroll() {
-    const navbar = document.getElementById('navbar');
-    if (document.body.scrollTop >= 50 || document.documentElement.scrollTop > 50) {
-      navbar.classList.add('nav-sticky');
-    } else {
-      navbar.classList.remove('nav-sticky');
-    }
+    this.merchData = JSON.parse(localStorage.getItem('merchData'));
+    console.log(this.merchData);
+    this.loggedIn = (this.user != null);
   }
 
   /**

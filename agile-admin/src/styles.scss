@@ -29,7 +29,7 @@ a {
   text-decoration: none;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
@@ -184,4 +184,12 @@ input {
 
 .right {
   text-align: right;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
 }

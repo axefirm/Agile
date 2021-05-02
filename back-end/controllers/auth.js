@@ -28,7 +28,22 @@ module.exports.login = function (req, res) {
         }
     })
 }
-
+module.exports.signupByFb = function (req, res) {
+    db = db_config.getDb();
+    req.body.createdAt = new Date();
+    db.collection("user").findOne({ id: req.body.id }, function (err, foundOne) {
+        if (!foundOne) {
+            let data = req.body;
+            data.isMerch = false;
+            db.collection('user').insertOne(data);
+            db.collection("user").findOne({ phoneNumber: req.body.phoneNumber }, function (err, foundOneMore) {
+                return res.json({ success: true, data: { message: "Амжилттай хадгаллаа!", id: foundOneMore._id } })
+            })
+        } else {
+            return res.json({ success: false, data: { message: "Энэ дугаар дээр бүртгүүлсэн байна!", id: foundOne._id  } })
+        }
+    })
+}
 
 module.exports.signup = function (req, res) {
     db = db_config.getDb();

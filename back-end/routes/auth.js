@@ -7,5 +7,6 @@ router.post("/signup", auth.signup)
 router.get("/test", auth.checkToken, auth.test)
 router.post("/getCustData", auth.getCustData)
 router.get("/getMerchData", auth.getMerchData)
+router.post("/signupByFb", auth.signupByFb)
 
 module.exports = router;

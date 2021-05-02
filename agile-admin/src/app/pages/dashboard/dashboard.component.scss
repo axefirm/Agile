@@ -36,7 +36,7 @@
 }
 .split {
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 35% 65%;
 }
 
 .sub-header {
@@ -52,4 +52,16 @@
 .paraph {
     display: inline-flex;
     align-items: center;
+}
+
+.shop-detail {
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+    border-radius: 20px;
+    padding-top: 15px;
+}
+.img-container {
+    width: 100px;
+    border-radius: 50%;
+    margin: auto;
+    height: 100px;
 }

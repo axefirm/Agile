@@ -3,12 +3,40 @@
 <div class="area">
   <div class="main">
     <div class="split">
-      <div class="middle-section">
+      <div class="right-section">
         <div class="header-section">
           <div class="header">
             Тавтай морил, {{custDataRes?.lastName}}
           </div>
+          <div class="shop-detail">
+            <div class="img-container" style="background-image: url('assets/img/dashboard/background.png');">
+            </div>
+            <div class="row" style="justify-content: center;">
+              {{custDataRes?.merchData?.shopName}}
+            </div>
+            <div class="row" style="justify-content: center;">
+              <button mat-flat-button class="btn" routerLink="/settings">
+                <mat-icon>edit</mat-icon>Засах
+              </button>
+            </div>
+
+            <p class="row">
+              {{custDataRes?.merchData?.detail}}
+            </p>
+            <div class="row">
+              Утас: {{custDataRes?.merchData?.telephone}}
+            </div>
+            <div class="row">
+              И-мэйл: {{custDataRes?.merchData?.email}}
+            </div>
+            <div class="row">
+              Хаяг: {{custDataRes?.merchData?.address}}
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="middle-section">
         <div class="no-margin">
           <div class="orders center">
             <div class="notif center">
@@ -42,32 +70,6 @@
           [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [dataLabels]="chartOptions.dataLabels">
         </apx-chart>
       </div>
-
-      <div class="right-section">
-        <div class="search-section">
-          <mat-form-field appearance="outline">
-            <input matInput placeholder="Search for products...">
-          </mat-form-field>
-          <button class="notif" mat-flat-button>
-            <mat-icon>notifications</mat-icon>
-          </button>
-          <!-- <img class="notif" src="" /> -->
-        </div>
-
-        <div class="section">
-          <div class="sub-header">
-            Хамгийн их зарагдсан бүтээгдэхүүн
-          </div>
-          <div class="paraph">
-            Бүгд
-            <mat-icon>chevron_right</mat-icon>
-          </div>
-
-        </div>
-      </div>
     </div>
-
-
-
   </div>
 </div>

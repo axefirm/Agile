@@ -1,0 +1,24 @@
+.img-viewer {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 10px;
+}
+
+img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 12px 20px;
+    width: 100px;
+    font-size: 17px;
+    color: #4c5667 !important;
+    border: none;
+    outline: none !important;
+    background-color: #fff;
+    position: relative;
+    border: 1px solid black;
+    text-align: center;
+    top: 3px;
+}

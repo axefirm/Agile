@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class Footer1Component implements OnInit {
 
   constructor() { }
-
+  merchData: any;
   ngOnInit(): void {
+    this.merchData = JSON.parse(localStorage.getItem('merchData'));
   }
 
 }
