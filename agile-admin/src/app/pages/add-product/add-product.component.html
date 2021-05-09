@@ -36,6 +36,16 @@
         </div>
         <div class="photo card-background">
           Барааны зураг
+          <button mat-flat-button class="btn" (click)="upload()">
+            <mat-icon>save</mat-icon>Хадгалах
+          </button>
+          <input type="file" (change)="fileChangeEvent($event)" />
+
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4"
+            format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded($event)"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+          <img [src]="croppedImage" />
           <input type="file" #photo class="input-photo" accept="image/*" (change)="showPreview($event)" />
 
           <div class="upload-photo" (click)="photo.click()">

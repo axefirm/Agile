@@ -36,7 +36,11 @@ import { SubCategoryComponent } from './components/sub-category/sub-category.com
 import { DialogComponent } from './components/dialog/dialog.component';
 import { AddOrderComponent } from './pages/add-order/add-order.component';
 import { SettingsComponent } from './pages/settings/settings.component';
-
+import { ProfileComponent } from './pages/profile/profile.component';
+import { EditShopComponent } from './pages/edit-shop/edit-shop.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { SwiperModule } from 'swiper/angular';
+import { WebSiteEditComponent } from './pages/web-site-edit/web-site-edit.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -61,6 +65,9 @@ export function tokenGetter() {
     DialogComponent,
     AddOrderComponent,
     SettingsComponent,
+    ProfileComponent,
+    EditShopComponent,
+    WebSiteEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +89,8 @@ export function tokenGetter() {
     MatCheckboxModule,
     MatListModule,
     MatDialogModule,
+    ImageCropperModule,
+    SwiperModule,
     // TODO: Domain Add
     JwtModule.forRoot({
       config: {

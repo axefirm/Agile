@@ -34,8 +34,17 @@ export class EnrollMerchComponent implements OnInit {
       address: new FormControl('', [Validators.maxLength(50)]),
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(40)]),
       telephone: new FormControl('', [Validators.required, Validators.maxLength(8)]),
-      detail: new FormControl('', [Validators.maxLength(100)]),
+      detail: new FormControl(''),
       domain: new FormControl('', [Validators.required]),
+      shopDesign: this.formBuilder.group({
+        navbar: new FormControl('0'),
+        carousel: new FormControl('0'),
+        product: new FormControl('0'),
+        banner: new FormControl('0'),
+        feature: new FormControl('0'),
+        blog: new FormControl('0'),
+        footer: new FormControl('0'),
+      })
     });
   }
 

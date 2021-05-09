@@ -27,6 +27,14 @@
                 <div class="list-inline text-black text-uppercase font-size-20 font-weight-medium mt-3 mb-2">
                     {{product?.productName}}
                 </div>
+                <ng-container *ngIf="product?.categories != null && product?.categories != undefined">
+                    <div class="list-inline text-muted text-uppercase font-size-15 font-weight-medium mt-3 mb-2">
+                        Ангилал:
+                        <ng-container *ngFor="let category of product?.categories">
+                            {{category?.categoryName}} &nbsp;
+                        </ng-container>
+                    </div>
+                </ng-container>
                 <div class="list-inline text-muted text-uppercase font-size-15 font-weight-medium mt-3 mb-2">
                     {{product?.productPrice}}₮
                 </div>

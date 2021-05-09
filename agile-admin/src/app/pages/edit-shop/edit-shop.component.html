@@ -1,0 +1,135 @@
+<app-side-menu [index]="1"></app-side-menu>
+
+<div class="area">
+  <div class="main">
+    <div class="grid-2">
+      <div class="header">
+        Дэлгэц засварлах
+      </div>
+      <div class="right">
+        <button mat-flat-button class="btn" type="submit" (click)="submit()">
+          <mat-icon>save</mat-icon>Хадгалах
+        </button>
+      </div>
+    </div>
+    <swiper [navigation]="true" class="mySwiper" #newSwiper (swiper)="onSwiper($event)"
+      (indexChange)="onIndexChange($event)" (slideChange)="onSlideChange()" [(index)]="index">
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Толгой хэсэг - 1
+          </div>
+          <div class="container">
+            <img src="assets/img/navbar/navbar-1.PNG" />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Толгой хэсэг - 2
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/navbar/navbar-2.PNG" />
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+
+    <swiper [navigation]="true" class="mySwiper" #newSwiper (swiper)="onSwiper($event)"
+      (indexChange)="onIndexChange($event)" (slideChange)="onSlideChange()" [(index)]="index">
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Баннер - 1
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/carousel/carousel.png" />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Баннер - 2
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/carousel/carousel.png" />
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+
+    <swiper [navigation]="true" class="mySwiper" #newSwiper (swiper)="onSwiper($event)"
+      (indexChange)="onIndexChange($event)" (slideChange)="onSlideChange()" [(index)]="index">
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Баннер - 1
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/banner.png" />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Баннер - 2
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/banner.png" />
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+
+    <swiper [navigation]="true" class="mySwiper" #newSwiper (swiper)="onSwiper($event)"
+      (indexChange)="onIndexChange($event)" (slideChange)="onSlideChange()" [(index)]="index">
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Feature - 1
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/feature.png" />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Feature - 2
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/feature.png" />
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+
+    <swiper [navigation]="true" class="mySwiper" #newSwiper (swiper)="onSwiper($event)"
+      (indexChange)="onIndexChange($event)" (slideChange)="onSlideChange()" [(index)]="index">
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Footer - 1
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/footer.png" />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div style="margin-top: 30px;">
+          <div class="sub-header">
+            Footer - 2
+          </div>
+          <div class="container">
+            <img style="width: 100%;" src="assets/img/footer.png" />
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</div>

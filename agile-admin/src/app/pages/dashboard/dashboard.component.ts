@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexTooltip, ApexDataLabels } from 'ng-apexcharts';
 import { ApiService } from 'src/app/core/service/api.service';
 
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   custDataRes;
   public chartOptions: Partial<ChartOptions>;
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private router: Router) {
     this.chartOptions = {
       series: [
         {
@@ -70,4 +71,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  goEdit() {
+    this.router.navigate(['/edit-shop']);
+  }
 }

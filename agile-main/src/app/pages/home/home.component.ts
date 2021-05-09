@@ -10,8 +10,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private api: ApiService) { }
   products: any;
+  shopDesign: any;
   ngOnInit(): void {
     this.api.getMerchData().subscribe(res => {
+      this.shopDesign = res.data.merchData.shopDesign;
       localStorage.setItem('merchData', JSON.stringify(res.data.merchData));
     });
     this.api.getProducts().subscribe(res => {

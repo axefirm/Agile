@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { ApiService } from 'src/app/core/service/api.service';
 
 @Component({
@@ -97,13 +98,14 @@ export class AddProductComponent implements OnInit {
   uploadForm: FormGroup;
   selectedFiles: any;
   filePaths: any = [];
+  files: any = [];
 
 
   // Image Preview
   showPreview(event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.selectedFiles = file;
-
+    this.files.push(file);
     const reader = new FileReader();
     reader.onload = () => {
       this.filePaths.push(reader.result as string);
@@ -111,11 +113,41 @@ export class AddProductComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  upload() {
+    console.log(this.files);
+    this.api.upload(this.files).subscribe(resPhoto => {
+      console.log(resPhoto);
+    });
+  }
+
   test() {
-    console.log("test");
+    console.log('test');
   }
   close(e) {
     this.filePaths.splice(e, 1);
+    this.files.splice(e, 1);
+  }
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    console.log(event);
+    this.croppedImage = event.base64;
+    // console.log(this.croppedImage);
+  }
+  imageLoaded(image: HTMLImageElement) {
+    console.log(image);
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
   }
   // Submit Form
   submit() {
@@ -125,9 +157,9 @@ export class AddProductComponent implements OnInit {
         req._id = this.data._id;
         req.shopId = this.data.shopId;
         req.categories = this.categoryList;
-        if (this.filePaths.length !== 0) {
-          console.log(this.filePaths);
-          this.api.upload(this.filePaths).subscribe(resPhoto => {
+        if (this.selectedFiles) {
+          console.log(this.selectedFiles);
+          this.api.upload(this.selectedFiles).subscribe(resPhoto => {
             console.log(resPhoto);
             req.photo = resPhoto.data.path;
             this.api.updateProductDetail(req).subscribe(res => {
@@ -142,7 +174,7 @@ export class AddProductComponent implements OnInit {
               alert(err);
             }
             );
-          })
+          });
         } else {
           this.api.updateProductDetail(req).subscribe(res => {
             if (res.success) {
@@ -163,9 +195,9 @@ export class AddProductComponent implements OnInit {
         req.shopId = sessionStorage.getItem('shopId');
         req.categories = this.categoryList;
         console.log(req);
-        if (this.filePaths.length !== 0) {
-          console.log(this.filePaths);
-          this.api.upload(this.filePaths).subscribe(resPhoto => {
+        if (this.selectedFiles) {
+          console.log(this.selectedFiles);
+          this.api.upload(this.selectedFiles).subscribe(resPhoto => {
             console.log(resPhoto);
             req.photo = resPhoto.data.path;
             this.api.addProduct(req).subscribe(res => {

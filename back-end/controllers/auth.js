@@ -54,6 +54,7 @@ module.exports.signup = function (req, res) {
             data.token = "";
             db.collection('user').insertOne(data);
             db.collection("user").findOne({ phoneNumber: req.body.phoneNumber }, function (err, foundOneMore) {
+                console.log(foundOneMore);
                 return res.json({ success: true, data: { message: "Амжилттай хадгаллаа!", id: foundOneMore._id } })
             })
         } else {

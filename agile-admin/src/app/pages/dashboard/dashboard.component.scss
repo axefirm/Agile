@@ -33,6 +33,10 @@
 }
 .no-margin {
     display: inline-flex;
+    width: 100%;
+}
+.no-margin:last-child {
+    margin-left: auto;
 }
 .split {
     display: grid;
@@ -64,4 +68,11 @@
     border-radius: 50%;
     margin: auto;
     height: 100px;
+}
+
+
+.edit{
+    position: absolute; 
+    right: 20px;
+    cursor: pointer;
 }

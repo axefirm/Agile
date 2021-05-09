@@ -1,13 +1,27 @@
-<app-header1 [currentSection]="'home'"></app-header1>
+<ng-container *ngIf="shopDesign?.navbar == 0">
+    <app-header1 [currentSection]="'home'"></app-header1>
+</ng-container>
 
-<app-carousel1></app-carousel1>
+<ng-container *ngIf="shopDesign?.carousel == 0">
+    <app-carousel1></app-carousel1>
+</ng-container>
 
-<app-new-product1 [products]="products"></app-new-product1>
+<ng-container *ngIf="shopDesign?.product == 0">
+    <app-new-product1 [products]="products"></app-new-product1>
+</ng-container>
 
-<app-banner1></app-banner1>
+<ng-container *ngIf="shopDesign?.banner == 0">
+    <app-banner1></app-banner1>
+</ng-container>
 
-<app-feature1></app-feature1>
+<ng-container *ngIf="shopDesign?.feature == 0">
+    <app-feature1></app-feature1>
+</ng-container>
 
-<app-blog1></app-blog1>
+<ng-container *ngIf="shopDesign?.blog == 0">
+    <app-blog1></app-blog1>
+</ng-container>
 
-<app-footer1></app-footer1>
+<ng-container *ngIf="shopDesign?.footer == 0">
+    <app-footer1></app-footer1>
+</ng-container>
